@@ -84,8 +84,9 @@ typedef sx_align_decl(16, struct) sx_signal_s {
      uint8_t data[128];
 } sx_signal;
 
-SX_API void sx_signal_init(sx_signal* sig);
+SX_API void sx_signal_init(sx_signal* sig, bool manual_reset sx_default(0));
 SX_API void sx_signal_release(sx_signal* sig);
 SX_API void sx_signal_raise(sx_signal* sig);
+SX_API void sx_signal_reset_if_manual(sx_signal* sig);
 SX_API bool sx_signal_wait(sx_signal* sig, int msecs sx_default(-1));
 
