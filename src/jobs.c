@@ -664,3 +664,8 @@ unsigned int sx_job_thread_id(sx_job_context* ctx)
     sx_assert(tdata);
     return tdata->tid;
 }
+
+SX_API bool sx_job_in_job(sx_job_context* ctx) {
+    sx__job_thread_data* tdata = (sx__job_thread_data*)sx_tls_get(ctx->thread_tls);
+    return tdata != NULL && tdata->cur_job != NULL;
+}

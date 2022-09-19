@@ -46,11 +46,11 @@
 //                                  processed.
 //                                  - count: The count of items in the work set
 //                                           This value will be divided by job system into threads
-//                                           For example, if you submit count as 100 and there are 
-//                                           10 worker cores, then each core will have a range of 10 
+//                                           For example, if you submit count as 100 and there are
+//                                           10 worker cores, then each core will have a range of 10
 //                                           values of work
-//                                  - callback: worker callback function. `range_start` and 
-//                                              `range_end` parameters are assigned for each thread 
+//                                  - callback: worker callback function. `range_start` and
+//                                              `range_end` parameters are assigned for each thread
 //                                              which is within the `count` value
 //                                  - user: user pointer to be passed to callback function
 //                                  - priority: job priority, see `sx_job_priority`
@@ -141,3 +141,5 @@ SX_API void sx_job_set_current_thread_tags(sx_job_context* ctx, unsigned int tag
 
 SX_API int sx_job_thread_index(sx_job_context* ctx);
 SX_API unsigned int sx_job_thread_id(sx_job_context* ctx);
+
+SX_API bool sx_job_in_job(sx_job_context* ctx);
